@@ -1,0 +1,229 @@
+.fbk-pricing-grid {
+    @apply grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+}
+
+.fbk-plan-card {
+    @apply relative flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm
+           dark:border-gray-700 dark:bg-gray-800
+           transition-all duration-200 hover:shadow-md;
+}
+
+.fbk-plan-card--featured {
+    @apply border-primary-500 ring-2 ring-primary-500 shadow-md;
+}
+
+.fbk-plan-card--current {
+    @apply border-green-500 ring-2 ring-green-400;
+}
+
+.fbk-plan-badge {
+    @apply absolute -top-3 left-1/2 -translate-x-1/2
+           rounded-full bg-primary-500 px-3 py-0.5
+           text-xs font-semibold text-white whitespace-nowrap shadow;
+}
+
+.fbk-plan-name {
+    @apply text-xl font-bold text-gray-900 dark:text-white;
+}
+
+.fbk-plan-description {
+    @apply mt-1 text-sm text-gray-500 dark:text-gray-400;
+}
+
+.fbk-plan-price {
+    @apply mt-5 flex items-baseline gap-1;
+}
+
+.fbk-plan-price__amount {
+    @apply text-4xl font-extrabold text-gray-900 dark:text-white;
+}
+
+.fbk-plan-price__currency {
+    @apply text-lg font-semibold text-gray-400;
+}
+
+.fbk-plan-price__period {
+    @apply text-sm text-gray-400;
+}
+
+.fbk-feature-list {
+    @apply mt-6 space-y-3 flex-1;
+}
+
+.fbk-feature-item {
+    @apply flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300;
+}
+
+.fbk-feature-icon--check {
+    @apply h-4 w-4 mt-0.5 text-green-500 shrink-0;
+}
+
+.fbk-feature-icon--cross {
+    @apply h-4 w-4 mt-0.5 text-gray-300 dark:text-gray-600 shrink-0;
+}
+
+.fbk-feature-value {
+    @apply font-semibold text-gray-800 dark:text-gray-200;
+}
+
+.fbk-plan-cta {
+    @apply mt-6 w-full;
+}
+
+.fbk-plan-cta__button {
+    @apply w-full flex items-center justify-center gap-2
+           rounded-[0.625rem] px-5 py-3
+           text-sm font-bold tracking-[0.01em]
+           bg-gray-900 text-white
+           dark:bg-gray-50 dark:text-gray-900
+           border-none cursor-pointer
+           transition-[transform,box-shadow,background-color,filter] duration-150 ease-[ease]
+           shadow-[0_1px_3px_0_rgb(0_0_0/.25),inset_0_1px_0_rgb(255_255_255/.06)]
+           hover:enabled:-translate-y-0.5 hover:enabled:bg-gray-800 dark:hover:enabled:bg-gray-100
+           hover:enabled:shadow-[0_6px_16px_0_rgb(0_0_0/.28),inset_0_1px_0_rgb(255_255_255/.1)]
+           active:enabled:translate-y-0
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none;
+}
+
+.fbk-plan-cta__button--featured {
+    @apply bg-gradient-to-br from-primary-500 to-primary-700 text-white
+           shadow-[0_1px_3px_0_rgb(99_102_241/.3),0_4px_12px_0_rgb(99_102_241/.2),inset_0_1px_0_rgb(255_255_255/.15)]
+           hover:enabled:shadow-[0_4px_14px_0_rgb(99_102_241/.4),0_8px_20px_0_rgb(99_102_241/.15),inset_0_1px_0_rgb(255_255_255/.2)]
+           dark:from-primary-500 dark:to-primary-700 dark:text-white;
+}
+
+.fbk-plan-cta__button--current {
+    @apply bg-green-50 text-green-700 border border-green-300
+           shadow-none opacity-100 cursor-default font-semibold
+           dark:bg-green-900/25 dark:text-green-400 dark:border-green-400/30;
+}
+
+.fbk-billing-toggle-wrapper {
+    @apply flex items-center justify-center gap-4 mb-8;
+}
+
+.fbk-billing-toggle-label {
+    @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+.fbk-billing-discount {
+    @apply ml-1 rounded-full bg-green-100 px-2 py-0.5
+           text-xs font-semibold text-green-700
+           dark:bg-green-900/30 dark:text-green-400;
+}
+
+.fbk-switch {
+    @apply relative inline-flex h-6 w-11 cursor-pointer items-center rounded-full
+           bg-gray-200 transition-colors duration-200 dark:bg-gray-700;
+}
+
+.fbk-switch input[type="checkbox"] {
+    @apply sr-only;
+}
+
+.fbk-switch__thumb {
+    @apply inline-block h-4 w-4 translate-x-1 rounded-full
+           bg-white shadow-sm transition-transform duration-200;
+}
+
+.fbk-switch--on {
+    @apply bg-primary-500;
+}
+
+.fbk-switch--on .fbk-switch__thumb {
+    @apply translate-x-6;
+}
+
+.fbk-status-alert {
+    @apply rounded-xl border p-4 text-sm;
+}
+
+.fbk-status-alert--warning {
+    @apply border-yellow-300 bg-yellow-50 text-yellow-800
+           dark:border-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-300;
+}
+
+.fbk-status-alert--danger {
+    @apply border-red-300 bg-red-50 text-red-800
+           dark:border-red-700 dark:bg-red-900/20 dark:text-red-300;
+}
+
+.fbk-invoice-row {
+    @apply flex items-center justify-between py-3
+           border-b border-gray-100 dark:border-gray-700 last:border-0;
+}
+
+/* ── Layout principal ─────────────────────────────────────────────── */
+
+.fbk-main {
+    @apply py-8;
+}
+
+.fbk-container {
+    @apply max-w-5xl mx-auto px-4 sm:px-6;
+}
+
+/* ── Header ───────────────────────────────────────────────────────── */
+
+.fbk-header {
+    @apply bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10;
+}
+
+.fbk-header__inner {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4;
+}
+
+.fbk-header__brand {
+    @apply flex items-center gap-2 shrink-0;
+}
+
+.fbk-header__logo {
+    @apply h-5 w-5 text-primary-500;
+}
+
+.fbk-header__title {
+    @apply text-[0.9375rem] font-semibold text-gray-900 dark:text-white;
+}
+
+/* ── Navigation ───────────────────────────────────────────────────── */
+
+.fbk-nav {
+    @apply flex items-center gap-1;
+}
+
+.fbk-nav__link {
+    @apply inline-flex items-center rounded-md px-3 py-1.5 text-sm font-medium
+           text-gray-500 dark:text-gray-400 no-underline
+           hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white
+           transition-colors;
+}
+
+.fbk-nav__link--active {
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold;
+}
+
+/* ── Section card ─────────────────────────────────────────────────── */
+
+.fbk-section {
+    @apply rounded-2xl border border-gray-200 dark:border-gray-700
+           bg-white dark:bg-gray-800 p-6 shadow-sm;
+}
+
+.fbk-section-heading {
+    @apply text-base font-bold text-gray-900 dark:text-white
+           mb-5 pb-3 border-b border-gray-100 dark:border-gray-700;
+}
+
+/* ── Subscription stats ───────────────────────────────────────────── */
+
+.fbk-subscription-grid {
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-5;
+}
+
+.fbk-subscription-stat-label {
+    @apply text-[0.6875rem] font-semibold uppercase tracking-wide text-gray-400 mb-1;
+}
+
+.fbk-subscription-stat-value {
+    @apply text-base font-semibold text-gray-900 dark:text-white mt-1;
+}
