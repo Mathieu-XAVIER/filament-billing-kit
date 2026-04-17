@@ -1,36 +1,36 @@
 <div>
     @if($errorMessage)
         <div class="fbk-status-alert fbk-status-alert--danger mb-6" role="alert">
-            <p class="font-semibold">{{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.error_title') }}</p>
+            <p class="font-semibold">{{ trans('filament-billing-kit::front/my_subscription.error_title') }}</p>
             <p class="mt-1">{{ $errorMessage }}</p>
         </div>
     @endif
 
     @if($subscription && $subscription->onGracePeriod())
         <div class="fbk-status-alert fbk-status-alert--warning mb-6" role="alert">
-            <p class="font-semibold">{{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.grace_period_title') }}</p>
+            <p class="font-semibold">{{ trans('filament-billing-kit::front/my_subscription.grace_period_title') }}</p>
             <p class="mt-1">
-                {!! trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.grace_period_message', ['date' => $subscription->ends_at?->format('d/m/Y')]) !!}
+                {!! trans('filament-billing-kit::front/my_subscription.grace_period_message', ['date' => $subscription->ends_at?->format('d/m/Y')]) !!}
             </p>
         </div>
     @elseif(!$subscription || $subscription->canceled())
         <div class="fbk-status-alert fbk-status-alert--warning mb-6" role="alert">
-            <p class="font-semibold">{{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.no_subscription_title') }}</p>
+            <p class="font-semibold">{{ trans('filament-billing-kit::front/my_subscription.no_subscription_title') }}</p>
             <p class="mt-1">
-                {{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.no_subscription_message') }}
-                <a href="{{ route('billing.index') }}" class="font-semibold underline">{{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.no_subscription_cta') }}</a>
+                {{ trans('filament-billing-kit::front/my_subscription.no_subscription_message') }}
+                <a href="{{ route('billing.index') }}" class="font-semibold underline">{{ trans('filament-billing-kit::front/my_subscription.no_subscription_cta') }}</a>
             </p>
         </div>
     @endif
 
     {{-- Abonnement actuel --}}
     <div class="fbk-section mb-6">
-        <h2 class="fbk-section-heading">{{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.heading') }}</h2>
+        <h2 class="fbk-section-heading">{{ trans('filament-billing-kit::front/my_subscription.heading') }}</h2>
 
         @if($subscription && $currentPlan)
             <div class="fbk-subscription-grid">
                 <div class="fbk-subscription-stat">
-                    <p class="fbk-subscription-stat-label">{{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.plan_label') }}</p>
+                    <p class="fbk-subscription-stat-label">{{ trans('filament-billing-kit::front/my_subscription.plan_label') }}</p>
                     <p class="fbk-subscription-stat-value">
                         {{ $currentPlan->name }}
                         @if($currentPlan->marketing_badge)
@@ -40,14 +40,14 @@
                 </div>
 
                 <div class="fbk-subscription-stat">
-                    <p class="fbk-subscription-stat-label">{{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.status_label') }}</p>
+                    <p class="fbk-subscription-stat-label">{{ trans('filament-billing-kit::front/my_subscription.status_label') }}</p>
                     <p class="mt-1">
                         @php
                             $statusLabel = match($subscription->stripe_status) {
-                                'active'   => trans('filament-billing-kit::filament-billing-kit.subscription.statuses.active'),
-                                'trialing' => trans('filament-billing-kit::filament-billing-kit.subscription.statuses.trialing'),
-                                'past_due' => trans('filament-billing-kit::filament-billing-kit.subscription.statuses.past_due'),
-                                'canceled' => trans('filament-billing-kit::filament-billing-kit.subscription.statuses.canceled'),
+                                'active'   => trans('filament-billing-kit::front/my_subscription.statuses.active'),
+                                'trialing' => trans('filament-billing-kit::front/my_subscription.statuses.trialing'),
+                                'past_due' => trans('filament-billing-kit::front/my_subscription.statuses.past_due'),
+                                'canceled' => trans('filament-billing-kit::front/my_subscription.statuses.canceled'),
                                 default    => $subscription->stripe_status,
                             };
                             $statusColor = match($subscription->stripe_status) {
@@ -65,9 +65,9 @@
 
                 <div class="fbk-subscription-stat">
                     <p class="fbk-subscription-stat-label">
-                        @if($subscription->onTrial()) {{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.trial_end') }}
-                        @elseif($subscription->ends_at) {{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.scheduled_end') }}
-                        @else {{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.renewal') }} @endif
+                        @if($subscription->onTrial()) {{ trans('filament-billing-kit::front/my_subscription.trial_end') }}
+                        @elseif($subscription->ends_at) {{ trans('filament-billing-kit::front/my_subscription.scheduled_end') }}
+                        @else {{ trans('filament-billing-kit::front/my_subscription.renewal') }} @endif
                     </p>
                     <p class="fbk-subscription-stat-value">
                         @if($subscription->onTrial())
@@ -90,7 +90,7 @@
                     <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M2.5 4A1.5 1.5 0 001 5.5V6h18v-.5A1.5 1.5 0 0017.5 4h-15zM19 8.5H1v6A1.5 1.5 0 002.5 16h15a1.5 1.5 0 001.5-1.5v-6zM3 13.25a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zm4.75-.75a.75.75 0 000 1.5h3.5a.75.75 0 000-1.5h-3.5z" clip-rule="evenodd"/>
                     </svg>
-                    {{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.manage_billing') }}
+                    {{ trans('filament-billing-kit::front/my_subscription.manage_billing') }}
                     <span wire:loading wire:target="manageBilling">
                         <svg class="h-3 w-3 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
@@ -100,14 +100,14 @@
                 </button>
             </div>
         @else
-            <p class="text-sm text-gray-500 dark:text-gray-400">{{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.no_active_subscription') }}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">{{ trans('filament-billing-kit::front/my_subscription.no_active_subscription') }}</p>
         @endif
     </div>
 
     {{-- Fonctionnalités incluses --}}
     @if($currentPlan && $currentPlan->features->isNotEmpty())
         <div class="fbk-section">
-            <h2 class="fbk-section-heading">{{ trans('filament-billing-kit::filament-billing-kit.pages.my_subscription.features_heading') }}</h2>
+            <h2 class="fbk-section-heading">{{ trans('filament-billing-kit::front/my_subscription.features_heading') }}</h2>
             <ul class="fbk-feature-list" role="list">
                 @foreach($currentPlan->features as $feature)
                     <li class="fbk-feature-item">

@@ -4,14 +4,14 @@ namespace Mxavier\FilamentBillingKit;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Mxavier\FilamentBillingKit\Pages\MyInvoices;
-use Mxavier\FilamentBillingKit\Pages\MySubscription;
-use Mxavier\FilamentBillingKit\Resources\InvoiceResource;
-use Mxavier\FilamentBillingKit\Resources\PlanResource;
-use Mxavier\FilamentBillingKit\Resources\SubscriptionResource;
-use Mxavier\FilamentBillingKit\Widgets\ActiveSubscriptionsWidget;
-use Mxavier\FilamentBillingKit\Widgets\FailedPaymentsWidget;
-use Mxavier\FilamentBillingKit\Widgets\OngoingTrialsWidget;
+use Mxavier\FilamentBillingKit\Filament\Pages\MyInvoices;
+use Mxavier\FilamentBillingKit\Filament\Pages\MySubscription;
+use Mxavier\FilamentBillingKit\Filament\Resources\InvoiceResource;
+use Mxavier\FilamentBillingKit\Filament\Resources\PlanResource;
+use Mxavier\FilamentBillingKit\Filament\Resources\SubscriptionResource;
+use Mxavier\FilamentBillingKit\Filament\Widgets\ActiveSubscriptionsWidget;
+use Mxavier\FilamentBillingKit\Filament\Widgets\FailedPaymentsWidget;
+use Mxavier\FilamentBillingKit\Filament\Widgets\OngoingTrialsWidget;
 
 class FilamentBillingKitPlugin implements Plugin
 {

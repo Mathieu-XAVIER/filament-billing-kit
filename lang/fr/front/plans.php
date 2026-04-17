@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'error_title' => 'Une erreur est survenue',
+    'subscription_activated' => 'Abonnement activé !',
+    'subscription_activated_message' => 'Votre abonnement est maintenant actif. Bienvenue à bord !',
+    'view_subscription' => 'Voir mon abonnement',
+    'payment_canceled' => 'Paiement annulé',
+    'payment_canceled_message' => "Vous avez annulé le processus de paiement. Aucun montant n'a été débité.",
+    'back_to_plans' => 'Retour aux plans',
+    'current_subscription_label' => 'Abonnement actuel',
+    'manage_billing' => 'Gérer la facturation',
+    'grace_period_ends' => 'Se termine le :date',
+    'title_change' => 'Changer de plan',
+    'title_choose' => 'Choisissez votre plan',
+    'subtitle' => "Commencez dès aujourd'hui, annulez à tout moment.",
+    'monthly' => 'Mensuel',
+    'yearly' => 'Annuel',
+    'empty' => 'Aucun plan disponible pour le moment.',
+    'custom_quote' => 'Sur devis',
+    'current_plan' => 'Plan actuel',
+    'contact_us' => 'Nous contacter',
+    'get_started' => 'Commencer',
+    'change_plan' => 'Changer de plan',
+    'redirecting' => 'Redirection…',
+    'price_period_monthly' => 'mois',
+    'price_period_yearly' => 'an',
+];

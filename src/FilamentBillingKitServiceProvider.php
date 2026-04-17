@@ -5,6 +5,11 @@ namespace Mxavier\FilamentBillingKit;
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Support\Facades\Event;
+use Laravel\Cashier\Events\InvoicePaymentFailed;
+use Laravel\Cashier\Events\InvoicePaymentSucceeded;
+use Laravel\Cashier\Events\SubscriptionCreated;
+use Laravel\Cashier\Events\SubscriptionDeleted;
+use Laravel\Cashier\Events\SubscriptionUpdated;
 use Livewire\Livewire;
 use Mxavier\FilamentBillingKit\Contracts\PaymentDriverContract;
 use Mxavier\FilamentBillingKit\Livewire\MyInvoicesPage;
@@ -30,7 +35,6 @@ class FilamentBillingKitServiceProvider extends PackageServiceProvider
                 '0004_create_subscription_plan_changes_table',
                 '0005_create_invoices_cache_table',
             ])
-            ->hasTranslations()
             ->hasViews('filament-billing-kit')
             ->hasRoute('web')
             ->runsMigrations()
@@ -54,9 +58,14 @@ class FilamentBillingKitServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'filament-billing-kit');
+
+        $this->publishes([
+            __DIR__.'/../lang' => lang_path('vendor/filament-billing-kit'),
+        ], 'filament-billing-kit-translations');
+
         $this->app->singleton(EntitlementsManager::class);
 
-        // Bind the payment driver
         $this->app->singleton(
             PaymentDriverContract::class,
             config('filament-billing-kit.payment_driver', StripeDriver::class)
@@ -78,7 +87,6 @@ class FilamentBillingKitServiceProvider extends PackageServiceProvider
             Css::make('filament-billing-kit', __DIR__.'/../resources/css/filament-billing-kit.css'),
         ], package: 'vendor/filament-billing-kit');
 
-        // Enregistrement des événements Stripe uniquement si le driver Stripe est actif
         $driverClass = config('filament-billing-kit.payment_driver', StripeDriver::class);
 
         if (
@@ -91,28 +99,28 @@ class FilamentBillingKitServiceProvider extends PackageServiceProvider
 
     protected function registerStripeEvents(): void
     {
-        if (! class_exists(\Laravel\Cashier\Events\SubscriptionCreated::class)) {
+        if (! class_exists(SubscriptionCreated::class)) {
             return;
         }
 
         Event::listen(
-            \Laravel\Cashier\Events\SubscriptionCreated::class,
+            SubscriptionCreated::class,
             [Listeners\StripeEventListener::class, 'handleSubscriptionCreated']
         );
         Event::listen(
-            \Laravel\Cashier\Events\SubscriptionUpdated::class,
+            SubscriptionUpdated::class,
             [Listeners\StripeEventListener::class, 'handleSubscriptionUpdated']
         );
         Event::listen(
-            \Laravel\Cashier\Events\SubscriptionDeleted::class,
+            SubscriptionDeleted::class,
             [Listeners\StripeEventListener::class, 'handleSubscriptionDeleted']
         );
         Event::listen(
-            \Laravel\Cashier\Events\InvoicePaymentSucceeded::class,
+            InvoicePaymentSucceeded::class,
             [Listeners\StripeEventListener::class, 'handleInvoicePaymentSucceeded']
         );
         Event::listen(
-            \Laravel\Cashier\Events\InvoicePaymentFailed::class,
+            InvoicePaymentFailed::class,
             [Listeners\StripeEventListener::class, 'handleInvoicePaymentFailed']
         );
     }

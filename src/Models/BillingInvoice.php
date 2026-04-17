@@ -38,6 +38,11 @@ class BillingInvoice extends Model
         return $this->morphTo();
     }
 
+    public function getDisplayNumberAttribute(): string
+    {
+        return $this->invoice_number ?? $this->provider_invoice_id;
+    }
+
     public function getFormattedAmountAttribute(): string
     {
         return number_format($this->amount_paid / 100, 2).' '.$this->currency;

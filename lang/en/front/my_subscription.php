@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'title' => 'My Subscription',
+    'error_title' => 'An error occurred',
+    'grace_period_title' => 'Subscription on grace period',
+    'grace_period_message' => 'Your subscription has been canceled and will end on <strong>:date</strong>. You can reactivate it before that date.',
+    'no_subscription_title' => 'No active subscription',
+    'no_subscription_message' => 'You have no active subscription.',
+    'no_subscription_message_full' => 'You have no active subscription. Subscribe to a plan to access all features.',
+    'no_subscription_cta' => 'Choose a plan →',
+    'heading' => 'My current subscription',
+    'plan_label' => 'Plan',
+    'status_label' => 'Status',
+    'trial_end' => 'Trial end',
+    'scheduled_end' => 'Scheduled end',
+    'renewal' => 'Renewal',
+    'manage_billing' => 'Manage Billing',
+    'no_active_subscription' => 'No active subscription.',
+    'features_heading' => 'Included features',
+    'statuses' => [
+        'active' => 'Active',
+        'trialing' => 'Trial',
+        'past_due' => 'Past due',
+        'canceled' => 'Canceled',
+        'incomplete' => 'Incomplete',
+        'incomplete_expired' => 'Expired',
+        'paused' => 'Paused',
+    ],
+];

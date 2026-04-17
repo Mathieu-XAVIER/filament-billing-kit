@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'title' => 'Mon abonnement',
+    'error_title' => 'Une erreur est survenue',
+    'grace_period_title' => 'Abonnement en période de grâce',
+    'grace_period_message' => 'Votre abonnement a été annulé et prendra fin le <strong>:date</strong>. Vous pouvez le réactiver avant cette date.',
+    'no_subscription_title' => 'Aucun abonnement actif',
+    'no_subscription_message' => "Vous n'avez pas d'abonnement actif.",
+    'no_subscription_message_full' => "Vous n'avez pas d'abonnement actif. Souscrivez un plan pour accéder à toutes les fonctionnalités.",
+    'no_subscription_cta' => 'Choisir un plan →',
+    'heading' => 'Mon abonnement actuel',
+    'plan_label' => 'Plan',
+    'status_label' => 'Statut',
+    'trial_end' => "Fin d'essai",
+    'scheduled_end' => 'Fin prévue',
+    'renewal' => 'Renouvellement',
+    'manage_billing' => 'Gérer ma facturation',
+    'no_active_subscription' => 'Aucun abonnement actif.',
+    'features_heading' => 'Fonctionnalités incluses',
+    'statuses' => [
+        'active' => 'Actif',
+        'trialing' => 'Essai',
+        'past_due' => 'Paiement en retard',
+        'canceled' => 'Annulé',
+        'incomplete' => 'Incomplet',
+        'incomplete_expired' => 'Expiré',
+        'paused' => 'En pause',
+    ],
+];
